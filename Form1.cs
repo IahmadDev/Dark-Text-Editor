@@ -106,5 +106,60 @@ namespace Text_Editor_Dark
                 this.Text = "New File*";
             }
         }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Would you like to close it or exit???","Its Important!!!",MessageBoxButtons.YesNoCancel);
+            if(result == DialogResult.Cancel)
+            {
+                return;
+            }
+            else if (result == DialogResult.Yes)
+            {
+                saveAsToolStripMenuItem_Click(sender, e);
+            }
+            Application.Exit();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.Control && e.KeyCode == Keys.S) || (e.Control && e.KeyCode == Keys.S))
+            {
+                saveAsToolStripMenuItem_Click(sender, e);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.FontFamily,richTextBox1.SelectionFont.Size,richTextBox1.SelectionFont.Style ^ FontStyle.Bold);
+        }
+
+        private void italicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.FontFamily, richTextBox1.SelectionFont.Size, richTextBox1.SelectionFont.Style ^ FontStyle.Italic);
+
+        }
+
+        private void strikethroughToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.FontFamily, richTextBox1.SelectionFont.Size, richTextBox1.SelectionFont.Style ^ FontStyle.Strikeout);
+
+        }
+
+        private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.FontFamily, richTextBox1.SelectionFont.Size, richTextBox1.SelectionFont.Style ^ FontStyle.Underline);
+
+        }
+
+        private void fontStyleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
